@@ -5,7 +5,10 @@ export default class App extends React.Component{
 
   render() {
     return (
-      <h1>Git-Map</h1>
+      <div>
+        <h1>Git-Map</h1>
+        <img src={require('./logo.png')}/>
+      </div>
     );
   }
 }

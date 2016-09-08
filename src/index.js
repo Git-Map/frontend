@@ -6,7 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './Sagas';
-import App from './components/App';
+import App from './container/App';
 
 const logger = createLogger({
   level: 'debug'
