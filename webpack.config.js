@@ -1,13 +1,13 @@
 var path = require("path");
 var webpack = require("webpack");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+var config = {
   entry: [
     './src/index'
   ],
   output: {
     path: path.resolve(__dirname,'build'),
-    publicPath: '/build/',
     filename: "bundle.js"
   },
   resolve: {
@@ -18,7 +18,10 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({'process.env': {
       BUILD_TIME:(new Date()).getTime()
-    }})
+    }}),
+    new HtmlWebpackPlugin({
+      template:'./index.html'
+    })
   ],
   devServer: {
     host: '0.0.0.0'
@@ -49,3 +52,14 @@ module.exports = {
     ]
   }
 };
+
+if(process.argv.indexOf('-p') !== -1){
+  console.log('Adding NODE_ENV=production');
+  config.plugins.push(new webpack.DefinePlugin({
+    'process.env': {
+      'NODE_ENV': JSON.stringify('production')
+    }
+  }));
+}
+
+module.exports = config;

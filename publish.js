@@ -1,12 +1,6 @@
 var ghpages = require('gh-pages');
+var path = require('path');
 
-var options = {
-    src:[
-        "index.html",
-        "build/**/*"
-    ]
-};
-
-ghpages.publish(__dirname,options,function(){
+ghpages.publish(path.join(__dirname, 'build'),function(){
    console.log("Published!");
 });
