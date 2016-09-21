@@ -23,8 +23,8 @@ export default () => {
   const store = createStore(
     reducers,
     compose(
-      applyMiddleware(loggerMiddleware),
       applyMiddleware(sagaMiddleware),
+      applyMiddleware(loggerMiddleware),
       createStoreWithRouter({
         routes,
         pathname: window.location.pathname
