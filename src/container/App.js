@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
+import { Link, RelativeFragment as Fragment } from 'redux-little-router';
 
 const style = {
   fontFamily:'Open Sans',
@@ -43,6 +44,12 @@ export class App extends React.Component{
         <img style={styleGitMapLogo} src={require('./assets/gitmap-logo.svg')}/>
         <p style={stylePayOff} >Many Languages, many cauntries, many developers</p>
         <a style={styleContactUs} href="mailto:info@codingjam.it" target="_black">contact us</a>
+        <Fragment forRoute='/'>
+          <Link href="/map">Map</Link>
+          <Fragment forRoute="/map">
+              Mappa
+          </Fragment>
+        </Fragment>
         <img style={styleComeLogo} src={require('./assets/come-logo.svg')}/>
       </div>
     );
