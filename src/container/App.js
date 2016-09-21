@@ -12,7 +12,11 @@ const styleGitMapLogo = {
 };
 
 const stylePayOff = {
-    marginLeft: '2rem'
+    marginLeft: '2rem',
+    fontWeight: '300',
+    textTransform: 'capitalize',
+    fontSize: '1.3rem',
+    textAlign: 'left'
 };
 
 const styleComeLogo = {
@@ -26,9 +30,9 @@ export class App extends React.Component{
   render() {
     return (
       <div style={style}>
-        <img style={styleGitMapLogo} src={require('./logo.svg')}/>
+        <img style={styleGitMapLogo} src={require('./assets/gitmap-logo.svg')}/>
         <p style={stylePayOff} >Many Languages, many cauntries, many developers</p>
-        <img style={styleComeLogo} src={require('./come-logo.svg')}/>
+        <img style={styleComeLogo} src={require('./assets/come-logo.svg')}/>
       </div>
     );
   }
