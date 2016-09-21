@@ -1,0 +1,157 @@
+{
+  "fr": {
+    "name": "France",
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 51.0891658,
+          "lng": 9.560067799999999
+        },
+        "southwest": {
+          "lat": 41.3423276,
+          "lng": -5.1423076
+        }
+      },
+      "location": {
+        "lat": 46.227638,
+        "lng": 2.213749
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 51.0891658,
+          "lng": 9.5597934
+        },
+        "southwest": {
+          "lat": 41.3423276,
+          "lng": -5.142141899999999
+        }
+      }
+    },
+    "users": 16780
+  },
+  "uk": {
+    "name": "United Kingdom",
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 60.8608653,
+          "lng": 33.9165549
+        },
+        "southwest": {
+          "lat": 34.5626034,
+          "lng": -8.649357199999999
+        }
+      },
+      "location": {
+        "lat": 55.378051,
+        "lng": -3.435973
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 60.856553,
+          "lng": 1.7627096
+        },
+        "southwest": {
+          "lat": 49.8699654,
+          "lng": -8.649357199999999
+        }
+      }
+    },
+    "users": 17021
+  },
+  "sp": {
+    "name": "España",
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 43.7923495,
+          "lng": 4.3277839
+        },
+        "southwest": {
+          "lat": 27.6378936,
+          "lng": -18.160788
+        }
+      },
+      "location": {
+        "lat": 40.46366700000001,
+        "lng": -3.74922
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 45.244,
+          "lng": 5.098
+        },
+        "southwest": {
+          "lat": 35.17300000000001,
+          "lng": -12.524
+        }
+      }
+    },
+    "users": 6631
+  },
+  "it": {
+    "name": "Italia",
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 47.092,
+          "lng": 18.5205015
+        },
+        "southwest": {
+          "lat": 35.4929201,
+          "lng": 6.6267201
+        }
+      },
+      "location": {
+        "lat": 41.87194,
+        "lng": 12.56738
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 47.092,
+          "lng": 18.5205015
+        },
+        "southwest": {
+          "lat": 35.4929201,
+          "lng": 6.6267201
+        }
+      }
+    },
+    "users": 6631
+  },
+  "ge": {
+    "name": "Deutschland",
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 55.0738232,
+          "lng": 15.0418962
+        },
+        "southwest": {
+          "lat": 47.2701115,
+          "lng": 5.8663425
+        }
+      },
+      "location": {
+        "lat": 51.165691,
+        "lng": 10.451526
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 55.0738232,
+          "lng": 15.0418962
+        },
+        "southwest": {
+          "lat": 47.2701115,
+          "lng": 5.8663425
+        }
+      }
+    },
+    "users": 24340
+  }
+}
