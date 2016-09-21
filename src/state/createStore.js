@@ -19,16 +19,23 @@ const reducers = combineReducers({
   shared:sharedReducers
 });
 
+const routerOptions = {
+  routes,
+  pathname: window.location.pathname
+};
+
+if(process.env.NODE_ENV === 'production'){
+  routerOptions.basename = '/frontend';
+  routerOptions.pathname = '/';
+}
+
 export default () => {
   const store = createStore(
     reducers,
     compose(
       applyMiddleware(sagaMiddleware),
       applyMiddleware(loggerMiddleware),
-      createStoreWithRouter({
-        routes,
-        pathname: window.location.pathname
-      }),
+      createStoreWithRouter(routerOptions),
       window.devToolsExtension ? window.devToolsExtension() : f => f
     )
   );
