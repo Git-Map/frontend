@@ -8,6 +8,8 @@ export class App extends React.Component{
       <div>
         <h1>Git-Map</h1>
         <img src={require('./logo.svg')}/>
+
+        <img src={require('./come-logo.svg')}/>
       </div>
     );
   }
