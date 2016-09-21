@@ -1,5 +1,5 @@
 import React from "react";
-import { Fragment } from 'redux-little-router';
+import { Link, Fragment } from 'redux-little-router';
 import Home from '../modules/shared/pages/Home';
 import Map from '../modules/shared/pages/Map';
 
@@ -13,6 +13,7 @@ export default class App extends React.Component{
   render() {
     return (
       <div style={style}>
+        {/*<Link href="/map">Mappa</Link>*/}
         <Fragment forRoute='/'>
           <Home></Home>
         </Fragment>
