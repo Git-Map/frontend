@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prestart": "npm install",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --port 9990",
     "build": "webpack -p",
     "test": "karma start",
     "prebuild": "rm -rf build",
