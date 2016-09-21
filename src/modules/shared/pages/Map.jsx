@@ -1,9 +1,12 @@
 import React from "react";
 import { connect } from 'react-redux';
 import Actions from "../state/actions";
+import _ from 'lodash';
 
 const mapStateToProps = (state) => {
-  return state
+  return {
+    countries:_.values(state.shared.countries || {})
+  };
 };
 
 class Map extends React.Component{
@@ -13,9 +16,17 @@ class Map extends React.Component{
   }
 
   render() {
+
+    const countries = this.props.countries.map((country) => {
+      return (
+        <p>{country.name} - {country.users}</p>
+      );
+    });
+
     return (
       <div>
           Mappa
+          {countries}
       </div>
     );
   }
