@@ -17,9 +17,9 @@ class Map extends React.Component{
 
   render() {
 
-    const countries = this.props.countries.map((country) => {
+    const countries = this.props.countries.map((country,index) => {
       return (
-        <p>{country.name} - {country.users}</p>
+        <p key={index}>{country.name} - {country.users}</p>
       );
     });
 
