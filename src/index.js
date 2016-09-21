@@ -8,6 +8,8 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from './Sagas';
 import App from './container/App';
 
+import './lib/open-sans-fontface/open-sans.scss';
+
 const logger = createLogger({
   level: 'debug'
 });

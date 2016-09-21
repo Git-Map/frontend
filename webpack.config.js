@@ -31,8 +31,16 @@ module.exports = {
         loaders: ['babel']
       },
       {
+        test: /\.css$/,
+        loader: 'style!css-loader?minimize!'
+      },
+      {
+        test: /\.scss$/,
+        loader: "style!css-loader!sass"
+      },
+      {
         test: /\.(woff|woff2|eot|ttf|svg|png)$/,
-        loader: 'url'
+        loader: 'url?limit=10000'
       }
     ]
   }
