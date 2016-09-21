@@ -1,6 +1,16 @@
 import { takeEvery, delay } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 
+import {ACTION_TYPES as ActionTypes} from "./actions";
+import Actions from "./actions";
+
+import Countries from "../services/Countries";
+
+const fetchCountries = function*(action){
+  const countries = yield call(Countries.list);
+  yield put(Actions.countriesReceived(countries));
+};
+
 export default function* rootSaga() {
-  //yield* takeEvery( ActionTypes.DATA_FETCH_REQUESTED, fetchData);
+  yield* takeEvery(ActionTypes.FETCH_COUNTRIES, fetchCountries);
 }

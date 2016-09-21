@@ -1,7 +1,17 @@
 import React from "react";
-import Countries from "../services/Countries";
+import { connect } from 'react-redux';
+import Actions from "../state/actions";
 
-export default class Map extends React.Component{
+const mapStateToProps = (state) => {
+  return state
+};
+
+class Map extends React.Component{
+
+  componentDidMount(){
+    this.props.dispatch(Actions.fetchCountries());
+  }
+
   render() {
     return (
       <div>
@@ -10,3 +20,5 @@ export default class Map extends React.Component{
     );
   }
 }
+
+export default connect(mapStateToProps)(Map);

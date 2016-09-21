@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from 'react-redux';
 import { Fragment } from 'redux-little-router';
 import Home from '../modules/shared/pages/Home';
 import Map from '../modules/shared/pages/Map';
@@ -9,7 +8,7 @@ const style = {
   fontSize: '90%'
 };
 
-export class App extends React.Component{
+export default class App extends React.Component{
 
   render() {
     return (
@@ -24,9 +23,3 @@ export class App extends React.Component{
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return state
-};
-
-export default connect(mapStateToProps)(App);
