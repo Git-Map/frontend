@@ -34,7 +34,7 @@ export default class Home extends React.Component{
     return (
       <div>
         <img style={styleGitMapLogo} src={require('./assets/gitmap-logo.svg')}/>
-        <p style={stylePayOff} >Many Languages, many cauntries, many developers</p>
+        <p style={stylePayOff} >Many Languages, many countries, many developers</p>
         <a style={styleContactUs} href="mailto:info@codingjam.it" target="_black">contact us</a>
         <a href="http://www.comeonline.it/" target="_blank">
           <img style={styleComeLogo} src={require('./assets/come-logo.svg')}/>
