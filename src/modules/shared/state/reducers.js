@@ -6,8 +6,17 @@ const INITIAL_STATE = {
 
 const reducers = {};
 
+reducers[ACTION_TYPES.FETCH_COUNTRIES] = (state,action) => {
+  return Object.assign({},state,{
+    loading:true
+  });
+};
+
 reducers[ACTION_TYPES.COUNTRIES_RECEIVED] = (state,action) => {
-  return Object.assign({},state,{countries:action.payload});
+  return Object.assign({},state,{
+    countries:action.payload,
+    loading:false
+  });
 };
 
 export default (state = INITIAL_STATE, action = {}) => {
