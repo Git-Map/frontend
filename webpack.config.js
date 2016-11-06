@@ -20,7 +20,8 @@ var config = {
       BUILD_TIME:(new Date()).getTime()
     }}),
     new HtmlWebpackPlugin({
-      template:'./index.html'
+      template:'./index.html',
+      favicon:'./src/modules/shared/assets/gitmap-logo.ico'
     })
   ],
   devServer: {
