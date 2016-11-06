@@ -9,9 +9,12 @@ import MAP_OPTIONS from "../model/MAP_OPTIONS";
 const mapStateToProps = (state) => {
   const countries = _.values(state.shared.countries || {});
   const markers = countries.map((c) => {
-    return Object.assign(c.geometry.location,{
-      number:c.users
-    });
+    return {
+      lat:c.geometry.location.lat,
+      lng:c.geometry.location.lng,
+      animation: google.maps.Animation.DROP,
+      icon: "http://chart.apis.google.com/chart?chst=d_map_spin&chld=1|0|FC4732|10|_|" + c.users,
+    };
   });
 
   return {
@@ -64,13 +67,7 @@ class Map extends React.Component{
     clearMarkers(this.markerObjects);
 
     _.each(this.props.markers, (m)  => {
-      const markerObject = this.map.addMarker({
-        lat:m.lat,
-        lng:m.lng,
-        animation: google.maps.Animation.DROP,
-        icon: "http://chart.apis.google.com/chart?chst=d_map_spin&chld=1|0|FC4732|10|_|" + m.number,
-      });
-
+      const markerObject = this.map.addMarker(m);
       this.markerObjects.push(markerObject);
     });
 
