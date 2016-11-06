@@ -7,12 +7,26 @@ import Actions from "../state/actions";
 import MAP_OPTIONS from "../model/MAP_OPTIONS";
 
 const mapStateToProps = (state) => {
+  const countries = _.values(state.shared.countries || {});
+  const markers = countries.map((c) => {
+    return Object.assign(c.geometry.location,{
+      number:c.users
+    });
+  });
+
   return {
-    countries:_.values(state.shared.countries || {})
+    countries,
+    markers
   };
 };
 
-var styles = {
+var clearMarkers = (markerObjects) => {
+  _.each(markerObjects, function(m) {
+    m.setMap(null);
+  });
+};
+
+const styles = {
   map:{
     height: "100%",
     width: "100%",
@@ -24,6 +38,14 @@ var styles = {
 };
 
 class Map extends React.Component{
+
+
+  constructor(props) {
+    super(props);
+
+    this.markerObjects = [];
+    this.map = null;
+  }
 
   componentDidMount(){
     this.props.dispatch(Actions.fetchCountries());
@@ -39,10 +61,17 @@ class Map extends React.Component{
 
   render() {
 
-    const countries = this.props.countries.map((country,index) => {
-      return (
-        <p key={index}>{country.name} - {country.users}</p>
-      );
+    clearMarkers(this.markerObjects);
+
+    _.each(this.props.markers, (m)  => {
+      const markerObject = this.map.addMarker({
+        lat:m.lat,
+        lng:m.lng,
+        animation: google.maps.Animation.DROP,
+        icon: "http://chart.apis.google.com/chart?chst=d_map_spin&chld=1|0|FC4732|10|_|" + m.number,
+      });
+
+      this.markerObjects.push(markerObject);
     });
 
     return (
