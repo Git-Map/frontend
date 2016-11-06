@@ -33,11 +33,11 @@ export default class Home extends React.Component{
   render() {
     return (
       <div>
-        <img style={styleGitMapLogo} src={require('./assets/gitmap-logo.svg')}/>
+        <img style={styleGitMapLogo} src={require('././gitmap-logo.svg')}/>
         <p style={stylePayOff} >Many Languages, many countries, many developers</p>
         <a style={styleContactUs} href="mailto:info@codingjam.it" target="_black">contact us</a>
         <a href="http://www.comeonline.it/" target="_blank">
-          <img style={styleComeLogo} src={require('./assets/come-logo.svg')}/>
+          <img style={styleComeLogo} src={require('././come-logo.svg')}/>
         </a>
       </div>
     );
