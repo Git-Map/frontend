@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import { createStoreWithRouter } from 'redux-little-router';
+import { routerForBrowser } from 'redux-little-router';
 import createLogger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 
@@ -29,13 +29,19 @@ if(process.env.NODE_ENV === 'production'){
   routerOptions.pathname = '/';
 }
 
+const {
+  routerEnhancer,
+  routerMiddleware
+} = routerForBrowser(routerOptions);
+
 export default () => {
   const store = createStore(
     reducers,
     compose(
       applyMiddleware(sagaMiddleware),
       applyMiddleware(loggerMiddleware),
-      createStoreWithRouter(routerOptions),
+      routerEnhancer,
+      applyMiddleware(routerMiddleware),
       window.devToolsExtension ? window.devToolsExtension() : f => f
     )
   );
