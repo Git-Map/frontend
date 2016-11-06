@@ -5,7 +5,7 @@ const MAP_OPTIONS = {
   zoom:4,
   minZoom: 4,
   maxZoom: 10,
-  disableDefaultUI: false,
+  disableDefaultUI: true,
   panControl: false,
   scaleControl: false,
   rotateControl: false,
