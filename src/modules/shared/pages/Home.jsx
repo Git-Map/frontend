@@ -1,9 +1,10 @@
 import React from "react";
-
+import { Grid, Row, Cell } from 'react-inline-grid';
 
 const styleGitMapLogo = {
-  marginTop: '2rem',
-  marginLeft: '3rem'
+  marginTop: '0.5rem',
+  marginLeft: '0.5rem',
+  width: '1rem'
 };
 
 const stylePayOff = {
@@ -30,16 +31,202 @@ const styleContactUs = {
   textDecoration: 'none'
 };
 
+const stipes = {
+    wrapper: {
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        width: '100%',
+        height: '100%',
+        overflowY: 'auto'
+    },
+    video: {
+        backgroundColor: '#000',
+        minHeight: '80%'
+    },
+    slider: {
+        backgroundColor: '#232D33',
+        minHeight: '80%'
+    },
+    fiveNation: {
+        backgroundColor: '#4D6070',
+        minHeight: '50%',
+        title: {
+            textAlign: 'center'
+        }
+
+    },
+    manyLanguages: {
+        backgroundColor: '#678093',
+        minHeight: '50%',
+        title: {
+            textAlign: 'center'
+        }
+
+    },
+    abbassador: {
+        backgroundColor: '#FF4527',
+        minHeight: '50%',
+        title: {
+            textAlign: 'center'
+        }
+
+    },
+    about: {
+        backgroundColor: '#F2F2F2',
+        minHeight: '50%',
+        title: {
+            textAlign: 'center',
+            color: '#FF4527',
+        }
+
+    },
+    footer: {
+        backgroundColor: '#181E23',
+        minHeight: '50px'
+    },
+}
+
+
 export default class Home extends React.Component{
   render() {
     return (
-      <div>
-        <img style={styleGitMapLogo} src={require('../assets/gitmap-logo.svg')}/>
-        <p style={stylePayOff} >Many Languages, many countries, many developers</p>
+      <div style={stipes.wrapper}>
+
+        {/* <p style={stylePayOff} >Many Languages, many countries, many developers</p>
         <a style={styleContactUs} href="mailto:info@codingjam.it" target="_black">contact us</a>
         <a href="http://www.comeonline.it/" target="_blank">
           <img style={styleComeLogo} src={require('../assets/come-logo.svg')}/>
-        </a>
+        </a> */}
+        {
+            /*
+                <img style={styleGitMapLogo} src={require('../assets/gitmap-logo.svg')}/>
+            */
+        }
+        <div style={stipes.video}>
+            <Grid>
+                <Row is="center">
+                    <Cell is="3 tablet-4 phone-4">
+                        <div>
+
+                        </div>
+                    </Cell>
+                    <Cell is="3 tablet-4 phone-4">
+                        <div>
+
+
+
+                        </div>
+                    </Cell>
+                </Row>
+            </Grid>
+        </div>
+        <div style={stipes.slider}>
+            <Grid>
+                <Row is="center">
+                    <Cell is="9 tablet-8 phone-12">
+                        <div>graph<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
+                    </Cell>
+                    <Cell is="bottom 3 tablet-4 phone-12">
+                        <div>text</div>
+                    </Cell>
+                </Row>
+            </Grid>
+        </div>
+        <div style={stipes.fiveNation}>
+            <Grid>
+                <Row is="center">
+                    <Cell is="12">
+                        <div style={stipes.fiveNation.title}>Our 5 Nation</div>
+                    </Cell>
+                    <Cell is="2 tablet-3 phone-12">
+                        <div>1<br/></div>
+                    </Cell>
+                    <Cell is="2 tablet-3 phone-12">
+                        <div>2<br/></div>
+                    </Cell>
+                    <Cell is="2 tablet-3 phone-12">
+                        <div>3<br/></div>
+                    </Cell>
+                    <Cell is="2 tablet-3 phone-12">
+                        <div>4<br/></div>
+                    </Cell>
+                    <Cell is="2 tablet-3 phone-12">
+                        <div>5<br/></div>
+                    </Cell>
+                </Row>
+            </Grid>
+        </div>
+        <div style={stipes.manyLanguages}>
+            <Grid>
+                <Row is="center">
+                    <Cell is="12">
+                        <div style={stipes.manyLanguages.title}>We Speak many languages</div>
+                    </Cell>
+                    <Cell is="2 tablet-3 phone-12">
+                        <div>1<br/></div>
+                    </Cell>
+                    <Cell is="2 tablet-3 phone-12">
+                        <div>2<br/></div>
+                    </Cell>
+                    <Cell is="2 tablet-3 phone-12">
+                        <div>3<br/></div>
+                    </Cell>
+                    <Cell is="2 tablet-3 phone-12">
+                        <div>4<br/></div>
+                    </Cell>
+                    <Cell is="2 tablet-3 phone-12">
+                        <div>5<br/></div>
+                    </Cell>
+                </Row>
+            </Grid>
+        </div>
+        <div style={stipes.abbassador}>
+            <Grid>
+                <Row is="center">
+                    <Cell is="12">
+                        <div style={stipes.abbassador.title}>ambassador</div>
+                    </Cell>
+                    <Cell is="3 tablet-3 phone-12">
+                        <div>1<br/></div>
+                    </Cell>
+                    <Cell is="3 tablet-3 phone-12">
+                        <div>2<br/></div>
+                    </Cell>
+                    <Cell is="3 tablet-3 phone-12">
+                        <div>3<br/></div>
+                    </Cell>
+                    <Cell is="3 tablet-3 phone-12">
+                        <div>4<br/></div>
+                    </Cell>
+                </Row>
+            </Grid>
+        </div>
+        <div style={stipes.about}>
+            <Grid>
+                <Row is="center">
+                    <Cell is="12">
+                        <div style={stipes.about.title}>about</div>
+                    </Cell>
+                    <Cell is="9 tablet-10 phone-12">
+                        <div>1<br/></div>
+                    </Cell>
+                </Row>
+            </Grid>
+        </div>
+        <div style={stipes.footer}>
+            <Grid>
+                <Row is="center">
+                    <Cell is="3">
+                        <div>logo1</div>
+                    </Cell>
+                    <Cell is="9">
+                        <div>logo2</div>
+                    </Cell>
+                </Row>
+            </Grid>
+        </div>
+
       </div>
     );
   }
