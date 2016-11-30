@@ -51,7 +51,6 @@ class Map extends React.Component{
   }
 
   componentDidMount(){
-    this.props.dispatch(Actions.fetchCountries());
     const options = Object.assign(
       {
         el:this.refs.chart

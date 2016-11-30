@@ -4,6 +4,10 @@ import * as d3 from 'd3';
 
 import COLORS from "src/modules/shared/model/COLORS";
 
+const DOUBLE_PI = Math.PI * 2;
+
+const formatPercent = d3.format('.0%');
+
 export default class RadialChart extends React.Component {
   componentWillMount() {
     this.radius = 100;
@@ -13,16 +17,12 @@ export default class RadialChart extends React.Component {
 
   componentDidMount() {
 
-    const progress = this.props.progress || 0.5;
     const foregroundColor = this.props.foregroundColor || COLORS.PRIMARY;
     const backgroudColor = this.props.backgroundColor || COLORS.SECONDARY;
 
     const border = 5;
 
-    var twoPi = Math.PI * 2;
-    var formatPercent = d3.format('.0%');
-
-    var arc = d3.arc()
+    this.arc = d3.arc()
       .startAngle(0)
       .innerRadius(this.radius)
       .outerRadius(this.radius - border);
@@ -36,16 +36,15 @@ export default class RadialChart extends React.Component {
     var g = svg.append('g')
       .attr('transform', 'translate(' + this.boxSize / 2 + ',' + this.boxSize / 2 + ')');
 
-    var meter = g.append('g')
-      .attr('class', 'progress-meter');
+    var meter = g.append('g');
 
     meter.append('path')
       .attr('class', 'background')
       .attr('fill', backgroudColor)
       .attr('fill-opacity', 0.5)
-      .attr('d', arc.endAngle(twoPi));
+      .attr('d', this.arc.endAngle(DOUBLE_PI));
 
-    var foreground = meter.append('path')
+    this.foreground = meter.append('path')
       .attr('class', 'foreground')
       .attr('fill', foregroundColor)
       .attr('fill-opacity', 1)
@@ -53,26 +52,31 @@ export default class RadialChart extends React.Component {
       .attr('stroke-width', 5)
       .attr('stroke-opacity', 1);
 
-    var front = meter.append('path')
+    this.front = meter.append('path')
       .attr('class', 'foreground')
       .attr('fill', foregroundColor)
       .attr('fill-opacity', 1);
 
-    var numberText = meter.append('text')
+    this.numberText = meter.append('text')
       .attr('fill', foregroundColor)
       .attr('text-anchor', 'middle')
       .attr('dy', '.35em');
-
-    foreground.attr('d', arc.endAngle(twoPi * progress));
-    front.attr('d', arc.endAngle(twoPi * progress));
-    numberText.text(formatPercent(progress));
   }
 
   render() {
+
+    const progress = this.props.progress || 0;
+
     const style = {
       width:this.boxSize+"px",
       height:this.boxSize+"px"
     };
+
+    if(this.foreground){
+      this.foreground.attr('d', this.arc.endAngle(DOUBLE_PI * progress));
+      this.front.attr('d', this.arc.endAngle(DOUBLE_PI * progress));
+      this.numberText.text(formatPercent(progress));
+    }
 
     return <div style={style}></div>;
   }

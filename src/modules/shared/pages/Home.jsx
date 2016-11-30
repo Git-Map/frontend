@@ -1,5 +1,11 @@
 import React from "react";
 import { Grid, Row, Cell } from 'react-inline-grid';
+import { connect } from 'react-redux';
+import { map, reduce } from 'lodash';
+import { get } from 'dot-prop';
+
+import RadialChart from "../components/RadialChart/RadialChart";
+import Actions from "../state/actions";
 
 const styleGitMapLogo = {
   marginTop: '0.5rem',
@@ -85,10 +91,15 @@ const stipes = {
         backgroundColor: '#181E23',
         minHeight: '50px'
     },
-}
+};
 
 
-export default class Home extends React.Component{
+class Home extends React.Component{
+
+  componentDidMount(){
+    this.props.dispatch(Actions.fetchCountries());
+  }
+
   render() {
     return (
       <div style={stipes.wrapper}>
@@ -140,19 +151,24 @@ export default class Home extends React.Component{
                         <div style={stipes.fiveNation.title}>Our 5 Nation</div>
                     </Cell>
                     <Cell is="2 tablet-3 phone-12">
-                        <div>1<br/></div>
+                        <RadialChart progress={this.props.percentages.it}></RadialChart>
+                        <div>Italy</div>
                     </Cell>
                     <Cell is="2 tablet-3 phone-12">
-                        <div>2<br/></div>
+                        <RadialChart progress={this.props.percentages.uk}></RadialChart>
+                        <div>Great Britain</div>
                     </Cell>
                     <Cell is="2 tablet-3 phone-12">
-                        <div>3<br/></div>
+                        <RadialChart progress={this.props.percentages.fr}></RadialChart>
+                        <div>France</div>
                     </Cell>
                     <Cell is="2 tablet-3 phone-12">
-                        <div>4<br/></div>
+                        <RadialChart progress={this.props.percentages.sp}></RadialChart>
+                        <div>Spain</div>
                     </Cell>
                     <Cell is="2 tablet-3 phone-12">
-                        <div>5<br/></div>
+                        <RadialChart progress={this.props.percentages.ge}></RadialChart>
+                        <div>Germany</div>
                     </Cell>
                 </Row>
             </Grid>
@@ -231,3 +247,28 @@ export default class Home extends React.Component{
     );
   }
 }
+
+const mapStateToProps = (state) => {
+
+  const props = {
+    percentages:{
+      it:0,
+      fr:0,
+      uk:0,
+      sp:0,
+      ge:0
+    }
+  };
+
+  const countries = get(state, 'shared.countries');
+  if(countries){
+    const total = reduce(countries,(total, country) => total + country.users, 0);
+    Object.keys(countries).forEach(key => {
+      props.percentages[key] = countries[key].users / total;
+    })
+  }
+
+  return props;
+};
+
+export default connect(mapStateToProps)(Home);
