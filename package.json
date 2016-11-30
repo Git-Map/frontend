@@ -6,7 +6,7 @@
   "scripts": {
     "prestart": "yarn",
     "start": "webpack-dev-server --port 9990",
-    "build": "webpack -p",
+    "build": "webpack",
     "test": "karma start",
     "prebuild": "rm -rf build",
     "predeploy": "npm run build",
