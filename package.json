@@ -9,8 +9,8 @@
     "build": "webpack",
     "test-watch": "jest --watch",
     "test": "jest",
-    "prebuild": "rm -rf build",
-    "predeploy": "npm run build",
+    "prebuild": "npm test",
+    "predeploy": "rm -rf build && npm run build",
     "deploy": "node publish"
   },
   "author": "extrategy",
