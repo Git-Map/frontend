@@ -1,6 +1,6 @@
 # Git-Map frontend
 
-Frontend for the Git-Map project
+Frontend for the Git-Map project [![Build Status](https://travis-ci.org/Git-Map/frontend.svg?branch=master)](https://travis-ci.org/Git-Map/frontend)
 
 ## Demo
 
