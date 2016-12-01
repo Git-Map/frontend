@@ -9,24 +9,24 @@ import routes from './routes';
 
 
 const loggerMiddleware = createLogger({
-  level:'debug',
-  collapsed:true,
+    level:'debug',
+    collapsed:true,
 });
 
 const sagaMiddleware = createSagaMiddleware();
 
 const reducers = combineReducers({
-  shared:sharedReducers
+    shared:sharedReducers
 });
 
 const routerOptions = {
-  routes,
-  pathname: window.location.pathname
+    routes,
+    pathname: window.location.pathname
 };
 
 if(process.env.NODE_ENV === 'production'){
-  routerOptions.basename = '/frontend';
-  routerOptions.pathname = '/';
+    routerOptions.basename = '/frontend';
+    routerOptions.pathname = '/';
 }
 
 const {
@@ -35,7 +35,7 @@ const {
 } = routerForBrowser(routerOptions);
 
 export default () => {
-  const store = createStore(
+    const store = createStore(
     reducers,
     compose(
       applyMiddleware(sagaMiddleware),
@@ -46,8 +46,8 @@ export default () => {
     )
   );
 
-  sagaMiddleware.run(sharedSagas);
+    sagaMiddleware.run(sharedSagas);
 
-  return store;
+    return store;
 };
 

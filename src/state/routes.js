@@ -1,8 +1,8 @@
 export default {
-  '/': {
-    title: 'Home'
-  },
-  '/map': {
-    title: 'Map'
-  }
+    '/': {
+        title: 'Home'
+    },
+    '/map': {
+        title: 'Map'
+    }
 };

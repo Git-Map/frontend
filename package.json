@@ -8,10 +8,13 @@
     "start": "webpack-dev-server --port 9990",
     "build": "webpack -p",
     "test-watch": "jest --watch",
+    "pretest": "npm run lint",
     "test": "jest",
     "prebuild": "npm test",
     "predeploy": "rm -rf build && npm run build",
-    "deploy": "node publish"
+    "deploy": "node publish",
+    "lint": "eslint src",
+    "fix-lint": "eslint --fix src"
   },
   "author": "extrategy",
   "license": "ISC",

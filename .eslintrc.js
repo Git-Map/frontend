@@ -3,6 +3,13 @@ module.exports = {
         "browser": true,
         "es6": true
     },
+    "globals": {
+      "process":false,
+      "it":false,
+      "expect":false,
+      "describe":false,
+      "require": false
+    },
     "extends": "eslint:recommended",
     "parserOptions": {
         "ecmaFeatures": {
@@ -30,6 +37,11 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-console": [
+          "off"
+        ],
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error"
     }
 };
