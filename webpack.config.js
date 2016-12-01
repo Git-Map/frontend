@@ -11,9 +11,6 @@ var config = {
     filename: "bundle.js"
   },
   resolve: {
-    alias:{
-      src: path.resolve(__dirname,'src')
-    },
     modulesDirectories: [ 'node_modules' ],
     extensions: ['', '.js', '.jsx']
   },

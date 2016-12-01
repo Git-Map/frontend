@@ -151,23 +151,23 @@ class Home extends React.Component{
                         <div style={stipes.fiveNation.title}>Our 5 Nation</div>
                     </Cell>
                     <Cell is="2 tablet-3 phone-12">
-                        <RadialChart progress={this.props.percentages.it}></RadialChart>
+                        <RadialChart progress={this.props.values.it.percentage} label={this.props.values.it.value}></RadialChart>
                         <div>Italy</div>
                     </Cell>
                     <Cell is="2 tablet-3 phone-12">
-                        <RadialChart progress={this.props.percentages.uk}></RadialChart>
+                        <RadialChart progress={this.props.values.uk.percentage} label={this.props.values.uk.value}></RadialChart>
                         <div>Great Britain</div>
                     </Cell>
                     <Cell is="2 tablet-3 phone-12">
-                        <RadialChart progress={this.props.percentages.fr}></RadialChart>
+                        <RadialChart progress={this.props.values.fr.percentage} label={this.props.values.fr.value}></RadialChart>
                         <div>France</div>
                     </Cell>
                     <Cell is="2 tablet-3 phone-12">
-                        <RadialChart progress={this.props.percentages.sp}></RadialChart>
+                        <RadialChart progress={this.props.values.sp.percentage} label={this.props.values.sp.value}></RadialChart>
                         <div>Spain</div>
                     </Cell>
                     <Cell is="2 tablet-3 phone-12">
-                        <RadialChart progress={this.props.percentages.ge}></RadialChart>
+                        <RadialChart progress={this.props.values.ge.percentage} label={this.props.values.ge.value}></RadialChart>
                         <div>Germany</div>
                     </Cell>
                 </Row>
@@ -248,24 +248,41 @@ class Home extends React.Component{
   }
 }
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
 
   const props = {
-    percentages:{
-      it:0,
-      fr:0,
-      uk:0,
-      sp:0,
-      ge:0
+    values:{
+      it:{
+        percentage:0,
+        value:0
+      },
+      fr:{
+        percentage:0,
+        value:0
+      },
+      uk:{
+        percentage:0,
+        value:0
+      },
+      sp:{
+        percentage:0,
+        value:0
+      },
+      ge:{
+        percentage:0,
+        value:0
+      }
     }
   };
 
   const countries = get(state, 'shared.countries');
-  if(countries){
-    const total = reduce(countries,(total, country) => total + country.users, 0);
+
+  if(countries) {
+    const total = reduce(countries, (total, country) => total + country.users, 0);
     Object.keys(countries).forEach(key => {
-      props.percentages[key] = countries[key].users / total;
-    })
+      props.values[key].percentage = countries[key].users / total;
+      props.values[key].value = countries[key].users;
+    });
   }
 
   return props;

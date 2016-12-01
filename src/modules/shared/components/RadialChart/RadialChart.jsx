@@ -1,8 +1,7 @@
 import React from "react";
 import * as ReactDOM from "react-dom";
 import * as d3 from 'd3';
-
-import COLORS from "src/modules/shared/model/COLORS";
+import COLORS from "../../model/COLORS";
 
 const DOUBLE_PI = Math.PI * 2;
 
@@ -66,6 +65,7 @@ export default class RadialChart extends React.Component {
   render() {
 
     const progress = this.props.progress || 0;
+    const label = this.props.label || formatPercent(progress);
 
     const style = {
       width:this.boxSize+"px",
@@ -75,7 +75,7 @@ export default class RadialChart extends React.Component {
     if(this.foreground){
       this.foreground.attr('d', this.arc.endAngle(DOUBLE_PI * progress));
       this.front.attr('d', this.arc.endAngle(DOUBLE_PI * progress));
-      this.numberText.text(formatPercent(progress));
+      this.numberText.text(label);
     }
 
     return <div style={style}></div>;
