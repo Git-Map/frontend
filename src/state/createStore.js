@@ -20,14 +20,8 @@ const reducers = combineReducers({
 });
 
 const routerOptions = {
-    routes,
-    pathname: window.location.pathname
+    routes
 };
-
-if(process.env.NODE_ENV === 'production'){
-    routerOptions.basename = '/frontend';
-    routerOptions.pathname = '/';
-}
 
 const {
   routerEnhancer,
