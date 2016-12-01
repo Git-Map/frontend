@@ -14,6 +14,7 @@ var config = {
     alias:{
       src: path.resolve(__dirname,'src')
     },
+    modulesDirectories: [ 'node_modules' ],
     extensions: ['', '.js', '.jsx']
   },
   plugins: [
@@ -59,6 +60,9 @@ var config = {
 
 if(process.argv.indexOf('-p') !== -1){
   console.log('Adding NODE_ENV=production');
+
+  config.devtool = 'source-map';
+
   config.plugins.push(new webpack.DefinePlugin({
     'process.env': {
       'NODE_ENV': JSON.stringify('production')

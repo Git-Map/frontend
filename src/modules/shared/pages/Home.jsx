@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Row, Cell } from 'react-inline-grid';
 import { connect } from 'react-redux';
 import { map, reduce } from 'lodash';
-import { get } from 'dot-prop';
+import { get } from '../model/properties';
 
 import RadialChart from "../components/RadialChart/RadialChart";
 import Actions from "../state/actions";

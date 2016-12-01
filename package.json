@@ -6,7 +6,7 @@
   "scripts": {
     "prestart": "yarn",
     "start": "webpack-dev-server --port 9990",
-    "build": "webpack",
+    "build": "webpack -p",
     "test-watch": "jest --watch",
     "test": "jest",
     "prebuild": "npm test",
@@ -27,8 +27,8 @@
     "gh-pages": "0.11.0",
     "html-webpack-plugin": "^2.22.0",
     "jasmine-core": "2.4.1",
-    "json-loader": "0.5.4",
     "jest": "^17.0.3",
+    "json-loader": "0.5.4",
     "node-sass": "^3.4.2",
     "sass-loader": "4.0.2",
     "style-loader": "0.13.1",
@@ -39,7 +39,6 @@
   "dependencies": {
     "axios": "0.11.0",
     "d3": "^4.3.0",
-    "dot-prop": "^4.1.0",
     "font-awesome": "4.6.3",
     "gmaps": "^0.4.24",
     "lodash": "4.11.1",
